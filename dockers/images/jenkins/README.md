@@ -1,3 +1,3 @@
 # devops
 
-docker build -t 
+docker build -t learningwithme/jenkins:v1 .
