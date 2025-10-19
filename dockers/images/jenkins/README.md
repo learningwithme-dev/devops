@@ -1,0 +1,3 @@
+# devops
+
+docker build -t 
