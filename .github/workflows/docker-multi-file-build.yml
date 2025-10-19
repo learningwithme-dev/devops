@@ -40,6 +40,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Set date and commit tags
+        id: vars
+        run: |
+          echo "DATE_TAG=$(date +'%d-%m-%y')" >> $GITHUB_ENV
+          echo "COMMIT_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
@@ -47,5 +53,8 @@ jobs:
           file: ${{ env.DOCKER_BASE_PATH }}/${{ github.event.inputs.image }}/${{ github.event.inputs.dockerfile }}
           push: true
           tags: |
-            ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}
+            ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}-${{ env.DATE_TAG }}
+            ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}-${{ github.run_number }}
+            ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}-${{ env.COMMIT_SHORT }}
             ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ github.run_number }}
+            ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ env.COMMIT_SHORT }}
