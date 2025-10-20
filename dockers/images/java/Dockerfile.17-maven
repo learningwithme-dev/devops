@@ -1,4 +1,4 @@
-FROM amazoncorretto:21-alpine3.19
+FROM amazoncorretto:17-alpine3.19
 
 # Install Maven using apk (Alpine package manager)
 RUN apk update && \
