@@ -1,5 +1,5 @@
-# Use the OpenJDK 17 base image
-FROM learningwithme/android:25.20-10-25
+# Use the OpenJDK 11 base image
+FROM learningwithme/android:11.20-10-25
 
 RUN apt update
 # We directly answer the questions asked using the printf statement

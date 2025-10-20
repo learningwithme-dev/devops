@@ -12,6 +12,7 @@ on:
           - jenkins
           - node
           - android
+          - android-react
 
       dockerfile:
         description: "Specify Dockerfile name (default: Dockerfile)"
@@ -54,6 +55,7 @@ jobs:
           file: ${{ env.DOCKER_BASE_PATH }}/${{ github.event.inputs.image }}/${{ github.event.inputs.dockerfile }}
           push: true
           tags: |
+            ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}.${{ env.COMMIT_SHORT }}.${{ env.DATE_TAG }}
             ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}.${{ env.DATE_TAG }}
             ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}.${{ github.run_number }}
             ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}.${{ env.COMMIT_SHORT }}
