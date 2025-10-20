@@ -1,5 +1,5 @@
-# Base image with OpenJDK 25
-FROM eclipse-temurin:25-jdk
+# Base image with OpenJDK 17
+FROM eclipse-temurin:17-jdk
 
 # Set Android SDK environment variables
 ENV ANDROID_HOME=/opt/android-sdk
