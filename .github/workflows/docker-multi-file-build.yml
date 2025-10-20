@@ -8,9 +8,10 @@ on:
         required: true
         type: choice
         options:
-          - jenkins
           - java
+          - jenkins
           - node
+          - android
 
       dockerfile:
         description: "Specify Dockerfile name (default: Dockerfile)"
