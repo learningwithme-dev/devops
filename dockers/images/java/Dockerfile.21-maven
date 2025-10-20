@@ -1,0 +1,12 @@
+FROM amazoncorretto:21-alpine3.19
+
+# Install Maven
+RUN yum update -y && yum install -y maven && yum clean all
+
+RUN java -version && mvn --version
+
+# Set working directory
+WORKDIR /workspace
+
+# Default command
+CMD ["bash"]

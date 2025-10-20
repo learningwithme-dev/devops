@@ -56,5 +56,4 @@ jobs:
             ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}.${{ env.DATE_TAG }}
             ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}.${{ github.run_number }}
             ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}.${{ env.COMMIT_SHORT }}
-            ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ github.run_number }}
             ${{ env.DOCKER_ORG }}/${{ github.event.inputs.image }}:${{ env.COMMIT_SHORT }}
