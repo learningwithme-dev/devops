@@ -11,6 +11,7 @@ on:
           - java
           - jenkins
           - node
+          - nginx
           - android
           - android-react
 
