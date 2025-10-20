@@ -1,0 +1,13 @@
+FROM amazoncorretto:25-alpine3.19
+
+# Install Maven using apk (Alpine package manager)
+RUN apk update && \
+    apk add --no-cache maven bash nodejs npm
+
+RUN java -version && mvn --version && node -v && npm -v
+
+# Set working directory
+WORKDIR /workspace
+
+# Default command
+CMD ["bash"]
